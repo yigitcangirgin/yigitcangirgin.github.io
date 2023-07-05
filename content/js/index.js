@@ -1,101 +1,215 @@
-/*jslint browser:true */
 $(document).ready(function () {
-    var $body = $('body');
-    var $navbar = $('.navbar-default');
-    var $offsetY = $navbar.offset().top + 10;
-    var $menuButton = $('button.navbar-toggle');
-    var $menuIcon = $('.navbar-toggle .glyphicon');
-    var $collapsedMenuItem = $('.navbar-collapse.collapse li');
-    var $modalBackdropDiv = $('<div class="modal-backdrop fade in"></div>');
-    var $scrollButton = $('.scroll');
-    var $socialIcon = $('.social');
-  
-    // Fixed Nav after scroll
-    function scroll() {
-      if ($(window).scrollTop() >= $offsetY) {
-        $navbar.addClass('menu-fixed').css('background-color', 'rgba(255,254,253,0.97)');
-      } else {
-        $navbar.removeClass('menu-fixed').css('background-color', 'transparent');
-      }
-    }
-    document.onscroll = scroll;
-  
-    // Mobile Menu functions
-    function openMenu() {
-      $menuIcon.removeClass('glyphicon-menu-hamburger').addClass('glyphicon-remove active');
-      $modalBackdropDiv.css('z-index', 900);
-      $body.append($modalBackdropDiv);
-      if (!$navbar.hasClass('menu-fixed')) {
-        $navbar.css('background-color', 'rgba(255,254,253,0.97)');
-      }
-      // Close menu after clicking modal-backdrop
-      $modalBackdropDiv.on('click', function () {
-        $('.navbar-toggle').click();
-        closeMenu();
-      });
-    }
-    function closeMenu() {
-      $menuIcon.removeClass('glyphicon-remove active').addClass('glyphicon-menu-hamburger');
-      $modalBackdropDiv.css('z-index', 1025).remove();
-      if (!$navbar.hasClass('menu-fixed')) {
-        $navbar.css('background-color', 'transparent');
-      }
-    }
-    // Mobile Menu Icon Toggle
-    $menuButton.on('click', function () {
-      if ($menuIcon.hasClass('glyphicon-menu-hamburger')) {
-        openMenu();
-        // Close menu after clicking a link
-        $collapsedMenuItem.on('click', function () {
-          $('.navbar-toggle').click(); // Trigger collapse animation
-          closeMenu();
+  // typing animation
+  (function ($) {
+    $.fn.writeText = function (content) {
+      var contentArray = content.split(""),
+        current = 0,
+        elem = this;
+      setInterval(function () {
+        if (current < contentArray.length) {
+          elem.text(elem.text() + contentArray[current++]);
+        }
+      }, 80);
+    };
+  })(jQuery);
+
+  $("#holder").writeText("Yapay Zeka Proje Geliştirici / Yazılım Mühendisi");
+
+  new WOW().init();
+
+  var main = function () {
+    $(".fa-bars").click(function () {
+      $(".nav-screen").animate(
+        {
+          right: "0px"
+        },
+        200
+      );
+
+      $("body").animate(
+        {
+          right: "285px"
+        },
+        200
+      );
+    });
+
+    // Then push them back */
+    $(".fa-times").click(function () {
+      $(".nav-screen").animate(
+        {
+          right: "-285px"
+        },
+        200
+      );
+
+      $("body").animate(
+        {
+          right: "0px"
+        },
+        200
+      );
+    });
+
+    $(".nav-links a").click(function () {
+      $(".nav-screen").animate(
+        {
+          right: "-285px"
+        },
+        500
+      );
+
+      $("body").animate(
+        {
+          right: "0px"
+        },
+        500
+      );
+    });
+  };
+
+  $(document).ready(main);
+
+  // initiate full page scroll
+
+  $("#fullpage").fullpage({
+    scrollBar: true,
+    responsiveWidth: 400,
+    navigation: true,
+    navigationTooltips: ["home", "about", "portfolio", "contact", "connect"],
+    anchors: ["home", "about", "portfolio", "contact", "connect"],
+    menu: "#myMenu",
+    fitToSection: false,
+
+    afterLoad: function (anchorLink, index) {
+      var loadedSection = $(this);
+
+      //using index
+      if (index == 1) {
+        /* add opacity to arrow */
+        $(".fa-chevron-down").each(function () {
+          $(this).css("opacity", "1");
         });
-      } else {
-        closeMenu();
+        $(".header-links a").each(function () {
+          $(this).css("color", "white");
+        });
+        $(".header-links").css("background-color", "transparent");
+      } else if (index != 1) {
+        $(".header-links a").each(function () {
+          $(this).css("color", "black");
+        });
+        $(".header-links").css("background-color", "white");
       }
-    });
-    // Collapse menu on resize
-    $(window).resize(closeMenu());
-  
-    // Smooth scroll to content
-    $scrollButton.on('click', function (e) {
-      e.preventDefault();
-      var $link = $(this).attr('href');
-      $('html, body').animate({
-        scrollTop: $($link).offset().top - 60
-      }, 900);
-    });
-  
-    // Social icons hover effect
-    $socialIcon.on({
-      'focus mouseenter': function () {
-        var $iconImg = $(this).children();
-        var $href = $iconImg.attr('src').slice(0, -18) + 'color.png?raw=true'; // Remove 'black.svg' from end and add 'color.svg'
-        $iconImg.attr('src', $href);
-      },
-      'blur mouseleave': function () {
-        var $iconImg = $(this).children();
-        var $href = $iconImg.attr('src').slice(0, -18) + 'black.png?raw=true';
-        $iconImg.attr('src', $href);
+
+      //using index
+      if (index == 2) {
+        /* animate skill bars */
+        $(".skillbar").each(function () {
+          $(this)
+            .find(".skillbar-bar")
+            .animate(
+              {
+                width: $(this).attr("data-percent")
+              },
+              2500
+            );
+        });
       }
-    });
-  
-    // Center modals vertically
-    function centerModal() {
-      $(this).css('display', 'block');
-      var $dialog = $(this).find('.modal-dialog');
-      var $offset = ($(window).height() - $dialog.height()) / 2;
-      var $bottomMargin = parseInt($dialog.css('margin-bottom'), 10);
-  
-      // If modal is taller than screen height, top margin = bottom margin
-      if ($offset < $bottomMargin) {
-        $offset = $bottomMargin;
-      }
-      $dialog.css('margin-top', $offset);
     }
-  
-    $(document).on('show.bs.modal', '.modal', centerModal);
-    $(window).on('resize', function () {
-      $('.modal:visible').each(centerModal);
+  });
+
+  // move section down one
+  $(document).on("click", "#moveDown", function () {
+    $.fn.fullpage.moveSectionDown();
+  });
+
+  // fullpage.js link navigation
+  $(document).on("click", "#skills", function () {
+    $.fn.fullpage.moveTo(2);
+  });
+
+  $(document).on("click", "#projects", function () {
+    $.fn.fullpage.moveTo(3);
+  });
+
+  $(document).on("click", "#contact", function () {
+    $.fn.fullpage.moveTo(4);
+  });
+
+  // smooth scrolling
+  $(function () {
+    $("a[href*=#]:not([href=#])").click(function () {
+      if (
+        location.pathname.replace(/^\//, "") ==
+          this.pathname.replace(/^\//, "") &&
+        location.hostname == this.hostname
+      ) {
+        var target = $(this.hash);
+        target = target.length
+          ? target
+          : $("[name=" + this.hash.slice(1) + "]");
+        if (target.length) {
+          $("html,body").animate(
+            {
+              scrollTop: target.offset().top
+            },
+            700
+          );
+          return false;
+        }
+      }
     });
   });
+
+  //ajax form
+  $(function () {
+    // Get the form.
+    var form = $("#ajax-contact");
+
+    // Get the messages div.
+    var formMessages = $("#form-messages");
+
+    // Set up an event listener for the contact form.
+    $(form).submit(function (e) {
+      // Stop the browser from submitting the form.
+      e.preventDefault();
+
+      // Serialize the form data.
+      var formData = $(form).serialize();
+
+      // Submit the form using AJAX.
+      $.ajax({
+        type: "POST",
+        url: $(form).attr("action"),
+        data: formData
+      })
+        .done(function (response) {
+          // Make sure that the formMessages div has the 'success' class.
+          $(formMessages).removeClass("error");
+          $(formMessages).addClass("success");
+
+          // Set the message text.
+          $(formMessages).text(response);
+
+          // Clear the form.
+          $("#name").val("");
+          $("#email").val("");
+          $("#message").val("");
+        })
+        .fail(function (data) {
+          // Make sure that the formMessages div has the 'error' class.
+          $(formMessages).removeClass("success");
+          $(formMessages).addClass("error");
+
+          // Set the message text.
+          if (data.responseText !== "") {
+            $(formMessages).text(data.responseText);
+          } else {
+            $(formMessages).text(
+              "Oops! An error occured and your message could not be sent."
+            );
+          }
+        });
+    });
+  });
+});
