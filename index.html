@@ -1,90 +1,181 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Ticaret Sitesi</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-        nav {
-            background-color: #666;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        section {
-            padding: 20px;
-        }
-        .product {
-            border: 1px solid #ccc;
-            margin: 10px;
-            padding: 10px;
-            width: 30%;
-            float: left;
-            box-sizing: border-box;
-        }
-        .product img {
-            width: 100%;
-        }
-        .product h2 {
-            margin-top: 0;
-        }
-        .product p {
-            margin-bottom: 0;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>E-Ticaret Sitesi</h1>
-    </header>
-    <nav>
-        <a href="#">Anasayfa</a>
-        <a href="#">Ürünler</a>
-        <a href="#">Hakkımızda</a>
-        <a href="#">İletişim</a>
-    </nav>
-    <section>
-      <a href="https://iyzi.link/AJi3Hg">
-        <div class="product btn sucess">
-            <img src="111111111111111111111111111.jpeg" alt="Ürün 1">
-            <h2>Ürün 1</h2>
-            <p>Ürün 1 Açıklaması</p>
-            <p>₺132.00</p>
-            <button class="btn-sucess">Satın al</button>
-        </div>
-      </a>
+<div id="contenedor">
+	<header>
+        <link rel="stylesheet" href="content/css/index.css">
+		<div id="efecto">
+			<div>
+				<h1>Yigit Can Girgin</h1>
+				<h3>Data Analyst and Software Engineer</h3>
+				<h4>2002</h4>
+			</div>
+			<i class="fa fa-angle-down fa-2x" aria-hidden="true"></i>
+		</div>
+	</header>
+	<div id="contenido">
+		<div id="about">
+			<h2 class="seccion">About</h2>
+			<p><b>Yigit Can Girgin</b> I modeled the analysis of data and used it in my projects, I also do image processing and robotic coding. I am a software engineer who develops myself in web design and backend part and site creation.</p>
+		</div>
+		
+		<div id="cita">
+			
+			<i class="fa fa-quote-left" aria-hidden="true"></i>
+			<div id="contenidoCita">
+				<p>Our greatest weakness lies in giving up.<br>The most certain way to succeed is <br>always to try just one more time.</p>
+			</div>
+			
+		</div>
+		<div id="contenedorTimeline">
+			<h2 class="seccion">Timeline</h2>
+			<div id="timeline">
+				<div class="timelineItem">
+					<div class="timelineIcon">
+						<i class="fa fa-hospital-o"></i>
+					</div>
+					<div class="timelineContent">
+						<h2>Yigit Can Girgin is born</h2>
+						<h3>2002</h3>
+						<div>
+							<img src="content/img/manisa.png">
+							<p>Yigit Can was born in <b>Manisa/Salihli</b>, on Turkey's great city.</p>
+						</div>
+					</div>
+				</div>
 
-    </section>
-    <footer>
-        &copy; 2024 E-Ticaret Sitesi. Tüm Hakları Saklıdır.
-    </footer>
-</body>
-</html>
+				<div class="timelineItem">
+					<div class="timelineIcon">
+						<i class="fa fa-building-o"></i>
+					</div>
+					<div class="timelineContent right">
+						<h2>University</h2>
+						<h3>2020 — 2024</h3>
+						<div>
+							<img src="content/img/bandirma.jpeg">
+							<p>Yigit Can studies <b>Software Engineering</b> at the <b>Bandirma Onyedi Eylul University</b>.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="timelineItem">
+					<div class="timelineIcon">
+						<i class="fa fa-microphone"></i>
+					</div>
+					<div class="timelineContent">
+						<h2>Voice Assistant</h2>
+						<h3>2022-March</h3>
+						<div>
+							<img src="content/img/voice.jpeg">
+							<p>I designed an application where we can express what we want with voice command using python library. With voice activation, I enabled bots to do work with selenium.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="timelineItem">
+					<div class="timelineIcon">
+						<i class="fa fa-unlock"></i>
+					</div>
+					<div class="timelineContent right">
+						<h2>Password Cracking Application</h2>
+						<h3>2022-March</h3>
+						<div>
+							<img src="content/img/crack.png">
+							<p>As we used in our previous project, we developed a <b>Password Cracking Application</b> by using the python library with brute force attack.</p>
+						</div>
+					</div>
+				</div>
+                <div class="timelineItem">
+					<div class="timelineIcon">
+						<i class="fa fa-globe"></i>
+					</div>
+					<div class="timelineContent">
+						<h2>Software Intern</h2>
+						<h3>2022 - August/September</h3>
+						<div>
+							<img src="content/img/chicken.jpg">
+							<p>Designing a website to inform which products are in which band in the cargo department of a company that sells national chicken products and how long it takes to deliver them to the vehicles or to inform the current location of the products and to provide instant location information.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="timelineItem">
+					<div class="timelineIcon">
+						<i class="fa fa-coffee"></i>
+					</div>
+					<div class="timelineContent right">
+						<h2>Responsive E-Commerce website</h2>
+						<h3>2023-January</h3>
+						<div>
+							<img src="content/img/e-ticaret.PNG">
+							<p>We designed the <b>E-Commerce website </b>of a cafe business and combined the back-end and front-end parts. Finally, we designed and modeled the product purchase appointment system and feedback system in our e-commerce site.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="timelineItem">
+					<div class="timelineIcon">
+						<i class="fa fa-video-camera"></i>
+					</div>
+					<div class="timelineContent">
+						<h2>Real Time Gender Detection</h2>
+						<h3>2023-July</h3>
+						<div>
+							<img src="content/img/real_detect.PNG">
+							<p>We have divided the face images of male and female gender that we obtained from kaggle into two parts as training and test to create our model with the <b>random trees algorithm</b> and created the necessary codes to evaluate the training results and print them on the screen for <b>real-time detection.</b></p>
+						</div>
+					</div>
+				</div>
+
+				<div class="timelineItem">
+					<div class="timelineIcon">
+						<i class="fa fa-youtube-square"></i>
+					</div>
+					<div class="timelineContent right">
+						<h2>Youtube Converter</h2>
+						<h3>2023-August</h3>
+						<div>
+							<img src="content/img/converter.PNG">
+							<p>By copying the url of the video you want on youtube, you can perform your operation after choosing whatever you want it to be downloaded as mp3 or mp4 in format.</p>
+						</div>
+					</div>
+				</div>
+                <div class="timelineItem">
+					<div class="timelineIcon">
+						<i class="fa fa-truck"></i>
+					</div>
+					<div class="timelineContent ">
+						<h2>Software Intern</h2>
+						<h3>2023 - August/September</h3>
+						<div>
+							<img src="content/img/kiyiemniyet.png">
+							<p>A database application was created to <b>create, read, update and delete (CRUD)</b> the information of the staff, managers and interns in our department. In this way, it was made easier for people to make transactions.</p>
+						</div>
+					</div>
+				</div>
+				<div class="timelineItem">
+					<div class="timelineIcon">
+						<i class="fa fa-search-minus"></i>
+					</div>
+					<div class="timelineContent right">
+						<h2>Skin Cancer Detection</h2>
+						<h3>2024-June</h3>
+						<div>
+							<img src="content/img/skin.jpeg"">
+							<p>Using the <b>HAM10000</b> dataset, we have divided the data we received from 10 thousand images reserved as train test to be used in the <b>ISIC2018</b> competition into 7 classes according to skin cancer types. by giving the images of these 7 classes to our <b>GAN algorithm </b> , we have ensured that the images are reproduced because medical data cannot be used without permission due to ethics. Finally, we classified the images from <b>GAN</b> and <b>HAM10000</b> with transfer learning.</p>
+						</div>
+					</div>
+				</div>
+
+
+		</div>
+		<div id="borde"></div>
+		<div id="miiverse">
+			<img src="https://raw.githubusercontent.com/YuneVK/YuneVK.github.io/master/iwata/img/miiverse.png">
+			<div id="contenidoMiiverse">
+				<p>Hello, I'm Yigit Can Girgin, Software Engineer.<br>Thank you for examine carefully.<br>And please, don't be sad, Everything is going to be fine.<br>Plase understand.</p>
+			</div>
+		</div>
+		<footer>
+			<h1>Yigit Can Girgin</h1>
+			<h2>Read more about Me on <a href="https://tr.linkedin.com/in/yi%C4%9Fit-can-girgin-b1916a1b9" target="_blank">Linkedin</a></h2>
+		</footer>
+	</div>
+</div>
